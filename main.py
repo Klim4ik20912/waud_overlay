@@ -2,6 +2,7 @@ import wmi
 from time import sleep
 from art import tprint
 import random
+import vk_api
 
 c = wmi.WMI()
 
@@ -15,13 +16,15 @@ default_smiles = [
 def main():
     while True:
         last = last_act()
-        sleep(30)
+        print(f'last act - {last}')
+        sleep(5)
         text = now_work()
+        print(f'now work - {text}')
         if text != last:
-            vk = vk_api.VkApi(token="vk1.a.dIEmemk1_8sLdbTpANnu_fGzxwNGpivZkqHMbiEYn8smp2yzvmHJfzL6wPV1x-cXxIE4XmgWai2QfzjhQpudgq7nL2AQJ_wRAgpPIqrbnVKzMgkoJUrw029Ho9vswbGuKC9uqaZsatCOeV1-8drrx8wVIlbNWm4wlvUbjOCMA4egY6JI6ht4Pvn3M973Kz6e")
             emoji = random.choice(default_smiles)
             status_text = f'играет в {text} {emoji}'
             set_status(status_text)
+            print('статус изменен')
 
         else:
             print('not change!')
@@ -33,11 +36,11 @@ def now_work():
     elif (c.Win32_Process(name='pycharm64.exe')):
         return 'coding in PyCharm'
     elif (c.Win32_Process(name='osu!.exe')):
-        return 'discord'
-    elif (c.Win32_Process(name='Discord.exe')):
         return 'osu!'
+    elif (c.Win32_Process(name='Discord.exe')):
+        return 'discord'
     else:
-        return 'AFK'
+        return 'sleep'
 
 
 
@@ -46,6 +49,9 @@ def last_act():
 
 
 def set_status(status_text):
+    vk = vk_api.VkApi(token="vk1.a.AbXe9T46FfED83npc9Nv2LKJKgdL2cSWUsScqhSrUNxsShaOQF_AvFrlGpFc6ZabJziYKm1NCz-JgD-BUlF73AxH59jKvYXq6SBxLwOS4w1FOQBPt4SwQ6uMkwEy5bzRtxNVRuBmndMhdZRMtXiA5_QEKMYIAFN-AT_jeknyboe362tuCKUORthLv7wLGbcs")
     vk.method("status.set", {"text": status_text})
-    
+
+
 main()
+

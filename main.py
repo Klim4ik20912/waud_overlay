@@ -16,15 +16,12 @@ default_smiles = [
 def main():
     while True:
         last = last_act()
-        print(f'last act - {last}')
         sleep(5)
         text = now_work()
-        print(f'now work - {text}')
         if text != last:
             emoji = random.choice(default_smiles)
             status_text = f'играет в {text} {emoji}'
             set_status(status_text)
-            print('статус изменен')
 
         else:
             print('not change!')
@@ -51,6 +48,7 @@ def last_act():
 def set_status(status_text):
     vk = vk_api.VkApi(token="YOUR TOKEN")
     vk.method("status.set", {"text": status_text})
+    print(f'статус изменен на {status_text}')
 
 
 main()

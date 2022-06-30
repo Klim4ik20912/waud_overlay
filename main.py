@@ -47,3 +47,5 @@ def last_act():
 
 def set_status(status_text):
     vk.method("status.set", {"text": status_text})
+    
+main()

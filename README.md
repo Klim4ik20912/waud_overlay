@@ -5,7 +5,7 @@
 1. pip install -r requirements.txt
 2. pip install vk_api (затем) pip install WMI и pip install art
 
-после установки зависимостей, на 52 строчке кода скрипта main.py меняем YOUR_TOKEN на ваш токен который можно получить на странице https://vkhost.github.io
+после установки зависимостей, на 52 строчке кода скрипта main.py меняем YOUR_TOKEN на ваш токен который можно получить на странице https://vkhost.github.io (токен должен быть с доступом к статусу)
 
 и наконец запускаем скрипт main.py
 

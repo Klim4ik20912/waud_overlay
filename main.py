@@ -49,7 +49,7 @@ def last_act():
 
 
 def set_status(status_text):
-    vk = vk_api.VkApi(token="vk1.a.AbXe9T46FfED83npc9Nv2LKJKgdL2cSWUsScqhSrUNxsShaOQF_AvFrlGpFc6ZabJziYKm1NCz-JgD-BUlF73AxH59jKvYXq6SBxLwOS4w1FOQBPt4SwQ6uMkwEy5bzRtxNVRuBmndMhdZRMtXiA5_QEKMYIAFN-AT_jeknyboe362tuCKUORthLv7wLGbcs")
+    vk = vk_api.VkApi(token="YOUR TOKEN")
     vk.method("status.set", {"text": status_text})
 
 
